@@ -1,0 +1,97 @@
+{%extends "user_center_base.html"%}
+{% load dealwithtime%}
+{%block script%}
+<script>
+	$(function () {
+	    $(".order_list_table").find("#good").each(function () {
+			if ($(this).text()==false){
+			    $(this).parents("#td").remove()
+			}
+        })
+    })
+
+</script>
+{%endblock%}
+{%block center%}
+	<div class="search_bar clearfix">
+		<a href="/goods/index" class="logo fl"><img src="/static/images/logo.png"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+		<div class="search_con fr">
+			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
+			<input type="button" class="input_btn fr" name="" value="搜索">
+		</div>		
+	</div>
+
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="/user/user_info">· 个人信息</a></li>
+				<li><a href="/user/user_order" class="active">· 全部订单</a></li>
+				<li><a href="/user/user_site">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<h3 class="common_title2">全部订单</h3>
+			{%for c in page%}
+			{%ifchanged c.orderid%}
+				<div id="td">
+					<ul class="order_list_th w978 clearfix">
+						<li class="col01">{{c.orderid|dealwithtime}}</li>
+						<li class="col02">订单号：{{c.orderid}}</li>
+						<li class="col02 stress">未支付</li>
+					</ul>
+
+					<table class="order_list_table w980">
+						<tbody>
+							<tr>
+								<td width="55%" id="good">
+									{%for order in orderlist%}
+									{%ifequal order.orderid c.orderid %}
+									<ul class="order_goods_list clearfix">
+										<li class="col01"><img src="/{{order.ogid.gpic}}"></li>
+										<li class="col02">{{order.ogid.gtitle}}<em>{{order.ogprice}}元/{{order.ogid.gunit}}</em></li>
+										<li class="col03">{{order.ocartid.count}}</li>
+										<li class="col04">{{order.ototal}}元</li>
+									</ul>
+									{%endifequal%}
+									{%endfor%}
+								</td>
+								{%for h in heji%}
+								{%ifequal h.orderid c.orderid%}
+								<td width="15%" id="total">{{h.ototal__sum}}元</td>
+								{%endifequal%}
+								{%endfor%}
+								<td width="15%">待付款</td>
+								<td width="15%"><a href="#" class="oper_btn">去付款</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			{%endifchanged%}
+			{%endfor%}
+				<div class="pagenation">
+					{%ifequal page.number|add:'-1' 0%}
+					<a href="#">上一页</a>
+					{%else%}
+					<a href="/user/user_order/{{page.number|add:'-1'}}">上一页</a>
+					{%endifequal%}
+
+					{%for p in pageindex%}
+					{%ifequal p page.number%}
+					<a href="/user/user_order/{{p}}" class="active">{{p}}</a>
+					{%else%}
+					<a href="/user/user_order/{{p}}">{{p}}</a>
+					{%endifequal%}
+					{%endfor%}
+
+					{%ifequal page.paginator.num_pages page.number %}
+					<a href="#">下一页</a>
+					{%else%}
+					<a href="/user/user_order/{{page.number|add:'1'}}">下一页</a>
+					{%endifequal%}
+				</div>
+		</div>
+	</div>
+{%endblock%}
+
