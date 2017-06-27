@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@fnl7_7rqmu73yiq!xzbe#di16u%utx408y6)3mjdt8*^jip69'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*",]
 
 
 # Application definition
@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     "cart",
     "orderinfo",
     "userlogin.templatetags.dealwithtime",
-    "haystack"
 )
 #关闭浏览器设置session失效
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
@@ -54,14 +53,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 800,
     'height': 400,
 }
-#设置全文搜索引擎
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
-        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
-    }
-}#自动生成索引
-HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -131,3 +122,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static")
 ]
+STATIC_ROOT='/var/www/daily/'
