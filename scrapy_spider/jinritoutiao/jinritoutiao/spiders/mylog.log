@@ -1,0 +1,61 @@
+2017-07-01 12:58:02 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: jinritoutiao)
+2017-07-01 12:58:02 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jinritoutiao.spiders', 'SPIDER_MODULES': ['jinritoutiao.spiders'], 'COOKIES_ENABLED': False, 'BOT_NAME': 'jinritoutiao'}
+2017-07-01 12:58:02 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-07-01 12:58:02 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'jinritoutiao.IgnoreRequest_DownloaderMiddleware.IgnoreRequest',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-07-01 12:58:02 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-07-01 12:58:02 [scrapy.middleware] INFO: Enabled item pipelines:
+['jinritoutiao.pipelines.JinritoutiaoPipeline']
+2017-07-01 12:58:02 [scrapy.core.engine] INFO: Spider opened
+2017-07-01 12:58:02 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-07-01 12:58:02 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-07-01 12:58:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/api/pc/feed/?category=news_tech&utm_source%20=toutiao&widen=1&max_behot_time=1498694400&max_behot_time_tmp=1498885082&tadrequire=true> (referer: None)
+2017-07-01 12:58:03 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.toutiao.com
+2017-07-01 12:58:03 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6408098728841838850 HTTP/1.1" 301 None
+2017-07-01 12:58:03 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6408098728841838850/ HTTP/1.1" 200 None
+2017-07-01 12:58:03 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.toutiao.com
+2017-07-01 12:58:03 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6436495410256150785 HTTP/1.1" 301 None
+2017-07-01 12:58:04 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6436495410256150785/ HTTP/1.1" 200 None
+2017-07-01 12:58:04 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): www.toutiao.com
+2017-07-01 12:58:04 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6434768214279045377 HTTP/1.1" 301 None
+2017-07-01 12:58:04 [urllib3.connectionpool] DEBUG: http://www.toutiao.com:80 "GET /a6434768214279045377/ HTTP/1.1" 200 None
+2017-07-01 12:58:04 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-07-01 12:58:04 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 421,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4424,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 7, 1, 4, 58, 4, 551535),
+ 'log_count/DEBUG': 11,
+ 'log_count/INFO': 7,
+ 'memusage/max': 53088256,
+ 'memusage/startup': 53088256,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2017, 7, 1, 4, 58, 2, 313230)}
+2017-07-01 12:58:04 [scrapy.core.engine] INFO: Spider closed (finished)
